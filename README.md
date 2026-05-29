@@ -1,27 +1,44 @@
 # CultivoNinja v2 🍃
 
-Projeto Fullstack de gestão de cultivo de alta performance. Desenvolvido para rastreamento de genética, monitoramento de parâmetros e migração de histórico.
+Projeto Fullstack desenvolvido para gestão de cultivo indoor de alta performance. O sistema atua como um diário digital inteligente, oferecendo rastreamento de genética cronológico, cálculo de dias, monitoramento de parâmetros (EC/pH) e integração direta com o GitHub para armazenamento e exibição de fotos e históricos do cultivo legado.
 
-## 🚀 Visão Global
-Arquitetura moderna baseada em:
-- **Frontend**: Vue 3 + Tailwind CSS + Vue Router.
-- **Backend**: Node.js + Express + Knex.js.
-- **Banco de Dados**: Microsoft SQL Server (nativo Linux).
+## 🚀 Arquitetura e Tecnologias
+- **Frontend**: Vue 3 (SPA), Tailwind CSS, Vue Router.
+- **Backend**: Node.js, Express, Knex.js.
+- **Banco de Dados**: Microsoft SQL Server.
+- **Integração de Mídia**: GitHub REST API (Raw).
 
-## 📅 Planejamento
+## 📊 Status Atual do Cultivo
 
-### Curto Prazo (Esta semana)
-- [ ] Estabilizar integração Frontend-Backend com SQL Server.
-- [ ] Implementar página de detalhes por strain (Radical Juice & SLH).
-- [ ] Sincronizar logs do repositório legado via API.
+Abaixo o acompanhamento em tempo real das genéticas ativas no laboratório:
 
-### Médio Prazo (Próximo mês)
-- [ ] Dashboard analítico (gráficos de consumo de nutrientes/EC/pH).
-- [ ] Sistema de upload de imagens para galeria.
-- [ ] Notificações de irrigação/nutrição via sistema.
+| Genética | Estágio Atual | Clima (Temp) | Substrato | Iluminação | Equipamentos Ativos |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Super Lemon Haze** | Vegetativo (Recuperação Poda) | 23°C ~ 24°C (Noite) | Easy Coco | Quantum Board | AC Midea, Umidificador |
+| **Radical Juice** | Cura | Ambiente Controlado | Easy Coco | N/A | Potes de Vidro, Termo-higrômetros |
 
-## 🛠 Como rodar
-1. **Backend**: `cd backend && npm run dev`
-2. **Frontend**: `cd frontend && npm run dev`
+> **Nota de Infraestrutura (Ambiente Vega):** O controle térmico está operando temporariamente com o equipamento Midea para estabilização noturna na casa dos 23/24°C, aguardando o retorno do AC principal (EOS) da assistência técnica para baixar a temperatura a 17°C, se necessário.
+
+## 📅 Roadmap e Planejamento
+
+### ✅ Concluído (Fase 1 - Estrutura)
+- [x] Estabilizar integração Frontend-Backend com MS SQL Server nativo.
+- [x] Implementar SPA com Vue Router (Dashboard, Radical Juice, SLH).
+- [x] Criar galeria inteligente filtrando o ciclo de vida (Seed, Vega, Flora, Cura) pelo nome/data do arquivo.
+- [x] Acesso via rede local (Mobile).
+
+### ⏳ Curto Prazo (Fase 2 - Deploy e Refino)
+- [ ] Refinar as expressões regulares para captura precisa das datas nas fotos.
+- [ ] Finalizar templates das 3 páginas principais (CRUD completo de logs).
+- [ ] Deploy em servidor de produção (Cloud/VPS dedicado) para acesso externo global.
+
+### 🚀 Médio Prazo (Fase 3 - Analytics)
+- [ ] Dashboard analítico (gráficos de consumo de nutrientes/EC/pH ao longo das semanas).
+- [ ] Sistema de notificações de rega e manutenção.
+
+## 🛠 Como rodar localmente
+1. **Configuração do BD**: Execute os scripts em um MS SQL Server local.
+2. **Backend**: `cd backend && npm install && npm run dev`
+3. **Frontend**: `cd frontend && npm install && npm run dev`
 ---
-*Desenvolvido com foco em performance, organização e precisão nos dados.*
+*Desenvolvido por Felipe Andrade com foco em performance, organização de dados e excelência botânica.*
