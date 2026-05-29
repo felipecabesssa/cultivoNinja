@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  cultivoninja-db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: cultivoninja-sqlserver
+    restart: always
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=NinjaDev@StrongPass2026
+      - MSSQL_PID=Developer
+      - MSSQL_MEMORY_LIMIT_MB=2048
+      - MSSQL_AGENT_ENABLED=true
+    volumes:
+      - ./data_sql:/var/opt/mssql/data
+
+volumes:
+  mssql_data:
+    driver: local
+  mssql_log:
+    driver: local
