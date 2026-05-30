@@ -18,7 +18,7 @@ const logs = ref<any[]>([]);
 onMounted(async () => {
   try {
     // IMPORTANTE: Adicione o http://localhost:3000 aqui
-    const res = await fetch('http://localhost:3000/api/logs');
+    const res = await fetch('/api/logs');
     logs.value = await res.json();
   } catch (err) {
     console.error("Erro ao carregar logs:", err);
