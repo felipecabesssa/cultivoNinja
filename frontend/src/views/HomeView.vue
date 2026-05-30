@@ -25,7 +25,7 @@ const salvarRega = async () => {
   };
   
   try {
-    const response = await fetch('http://192.168.0.7/api/rega', {
+    const response = await fetch('/api/rega', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
