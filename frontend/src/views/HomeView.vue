@@ -16,29 +16,32 @@ const totalMl = computed(() => {
 
 const salvarRega = async () => {
   const payload = {
-    volume: volume.value,
-    dosagemA: dosagemA.value,
-    dosagemB: dosagemB.value,
-    dosagemC: dosagemC.value,
-    total_ml: totalMl.value,
+    planta_id: 1, 
+    volume_agua_l: Number(volume.value), // Mapeado para a nova coluna!
+    nut_base_a_ml: Number(dosagemA.value),
+    nut_base_b_ml: Number(dosagemB.value),
+    nut_base_c_ml: Number(dosagemC.value),
+    total_ml: Number(totalMl.value),
     observacoes: diario.value
-  };
+};
   
   try {
-    const response = await fetch('/api/rega', {
+    // Apontando direto para o motor na porta 3000
+    const response = await fetch('http://localhost:3000/api/rega', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
     
     if (response.ok) {
-      alert('Registro salvo com sucesso!');
-      diario.value = ''; // Limpa o campo de texto após salvar
-      // Num futuro próximo, faremos a lista atualizar sozinha aqui!
+      alert('Registro salvo com sucesso no SQL Server!');
+      diario.value = ''; 
+    } else {
+      alert('Erro do backend. Verifique o terminal do Node.');
     }
   } catch (err) {
     console.error('Erro ao conectar com a API:', err);
-    alert('Erro ao salvar. Verifique o console.');
+    alert('Erro de conexão. O backend na porta 3000 está rodando?');
   }
 };
 </script>

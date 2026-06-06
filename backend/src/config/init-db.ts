@@ -36,9 +36,12 @@ async function initDb() {
       await db.schema.createTable('Regas', (table) => {
         table.increments('id').primary();
         table.integer('planta_id').references('id').inTable('Plantas');
+        table.decimal('volume_agua_l'); // Adicionado
         table.decimal('nut_base_a_ml');
         table.decimal('nut_base_b_ml');
         table.decimal('nut_base_c_ml');
+        table.decimal('total_ml');      // Adicionado
+        table.text('observacoes');      // Adicionado
         table.timestamp('data_hora').defaultTo(db.fn.now());
       });
       console.log("✅ Tabela 'Regas' criada.");
